@@ -1,0 +1,12 @@
+
+.border{
+    
+    height: 20rem;
+    width: 40rem;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: azure;
+   
+    
+}

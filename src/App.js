@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Welcome from './pages/Welcome'
+import UserContextProvider from './context/UserContext'
+import Instruction from './pages/Instruction'
+import Quiz from './pages/Quiz'
+import Result from './pages/Result'
+import ErrorPage from './pages/ErrorPage'
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <UserContextProvider>
+       <Router>
+         <Routes>
+            <Route path="/result" element={<Result/>} />
+            <Route path='/quiz' element={<Quiz/>} />
+            <Route path='/instruction' element={<Instruction/>}/>
+            <Route  path='/' element={<Welcome/>}/> 
+            <Route path="*" element={<ErrorPage />}/>     
+            
+         </Routes>       
+       </Router>
+    </UserContextProvider>
+  )
 }
 
-export default App;
+export default App
